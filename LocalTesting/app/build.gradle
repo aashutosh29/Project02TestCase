@@ -8,6 +8,7 @@ android {
 
     defaultConfig {
         applicationId "jlin2.examples.localtesting"
+        namespace "jlin2.examples.localtesting"
         minSdk 32
         targetSdk 32
         versionCode 1
