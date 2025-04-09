@@ -46,7 +46,20 @@ class MainActivityTest {
         onView(withId(R.id.textToBeChanged)).check(matches(withText("123")))
     }
 
+    @Test
+    fun testOpenActivityWith123() {
+        onView(withId(R.id.editTextUserInput))
+            .perform(typeText("123"), closeSoftKeyboard())
+        onView(withId(R.id.activityChangeTextBtn)).perform(click())
+        Intents.intended(hasComponent(ShowTextActivity::class.java.name))
+        onView(withId(R.id.show_text_view)).check(matches(withText("123")))
+    }
 
+    @Test
+    fun testChangeTextEmpty() {
+        onView(withId(R.id.changeTextBt)).perform(click())
+        onView(withId(R.id.textToBeChanged)).check(matches(withText("")))
+    }
 
 
 }
