@@ -5,12 +5,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 32
+    namespace "com.example.android.testing.espresso.BasicSample"
+    compileSdkVersion 35
     buildToolsVersion rootProject.buildToolsVersion
     defaultConfig {
         applicationId "com.example.android.testing.espresso.BasicSample"
-        minSdkVersion 14
-        targetSdkVersion 32
+        minSdkVersion 19
+        targetSdkVersion 35
         versionCode 1
         versionName "1.0"
 
