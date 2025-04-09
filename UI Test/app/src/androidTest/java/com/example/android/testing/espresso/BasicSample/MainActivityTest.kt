@@ -61,5 +61,28 @@ class MainActivityTest {
         onView(withId(R.id.textToBeChanged)).check(matches(withText("")))
     }
 
+    @Test
+    fun testOpenActivityEmpty() {
+        onView(withId(R.id.activityChangeTextBtn)).perform(click())
+        Intents.intended(hasComponent(ShowTextActivity::class.java.name))
+        onView(withId(R.id.show_text_view)).check(matches(withText("")))
+    }
+
+    @Test
+    fun testChangeTextWithAbcdef() {
+        onView(withId(R.id.editTextUserInput))
+            .perform(typeText("abcdef"), closeSoftKeyboard())
+        onView(withId(R.id.changeTextBt)).perform(click())
+        onView(withId(R.id.textToBeChanged)).check(matches(withText("abcdef")))
+    }
+
+    @Test
+    fun testOpenActivityWithAbcdef() {
+        onView(withId(R.id.editTextUserInput))
+            .perform(typeText("abcdef"), closeSoftKeyboard())
+        onView(withId(R.id.activityChangeTextBtn)).perform(click())
+        Intents.intended(hasComponent(ShowTextActivity::class.java.name))
+        onView(withId(R.id.show_text_view)).check(matches(withText("abcdef")))
+    }
 
 }
